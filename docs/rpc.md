@@ -644,6 +644,10 @@ not be retried automatically. Existing `send.rich` text/URL mode and
 `send.attachment` return `guid` / `message_id` and `chat_guid` when available.
 `send.multipart` additionally returns `parts_count`.
 
+### `group.setIcon`
+
+Updates the selected group's photo through the bridge. It accepts exactly one chat selector and an optional `file` path. Photo files are securely staged like other attachments: symlink components are rejected and the caller needs write access to Messages' attachment staging directory. Omitting `file` clears the photo without staging. A staging failure is reported as `not_started`, before bridge dispatch. See [group-photo requirements](bridge.md#message-and-chat-mutation).
+
 ### `handles.check`
 
 Requires the IMCore bridge.
